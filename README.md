@@ -76,7 +76,7 @@ function login() {
     let user = document.getElementById("username").value;
     let pass = document.getElementById("password").value;
 
-    if(user === "boss" && pass === "1111") {
+    if(user === "sourov" && pass === "sourov") {
         document.body.innerHTML = `
             <div style="text-align:center; margin-top:100px; font-family:Arial;">
                 <h1>🔥 Welcome to my website 🔥</h1>
