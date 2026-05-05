@@ -91,3 +91,68 @@ function login() {
 
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #000428, #004e92);
+    color: white;
+    text-align: center;
+}
+
+.header {
+    background: #111;
+    padding: 15px;
+    font-size: 20px;
+}
+
+.card {
+    background: white;
+    color: black;
+    margin: 30px auto;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background: red;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+🔥 Dashboard
+</div>
+
+<h1>Welcome to my website 🔥</h1>
+<h2>Developer Sourov 😎</h2>
+
+<div class="card">
+    <p>👤 Username: sourov</p>
+    <p>📊 Status: Active</p>
+</div>
+
+<button onclick="logout()">Logout</button>
+
+<script>
+function logout(){
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
