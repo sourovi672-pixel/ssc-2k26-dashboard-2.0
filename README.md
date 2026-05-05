@@ -1,132 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Login Page</title>
+<title>Login</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: linear-gradient(135deg, #000428, #004e92);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: white;
+body{
+    margin:0;
+    font-family:Arial;
+    background:linear-gradient(135deg,#000428,#004e92);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
 }
 
-.login-box {
-    background: white;
-    color: black;
-    padding: 30px;
-    border-radius: 12px;
-    width: 300px;
-    text-align: center;
+.box{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    width:320px;
+    text-align:center;
 }
 
-.login-box h2 {
-    margin-bottom: 20px;
+input{
+    width:90%;
+    padding:10px;
+    margin:10px 0;
 }
 
-input {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+button{
+    width:100%;
+    padding:10px;
+    background:#1e90ff;
+    border:none;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    background: #1e90ff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #187bcd;
-}
-
-#error {
-    color: red;
-    font-size: 14px;
+#error{
+    color:red;
+    font-size:14px;
 }
 </style>
 
 </head>
+
 <body>
 
-<div class="login-box">
-    <h2>Login Boss 🔥</h2>
+<div class="box">
 
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
+<h3>👋 You are friend of Sourov</h3>
+<p>Please login to continue</p>
 
-    <button onclick="login()">Login</button>
+<input id="username" placeholder="Username">
+<input id="password" type="password" placeholder="Password">
 
-    <p id="error"></p>
+<button onclick="login()">Login</button>
+
+<p id="error"></p>
+
 </div>
 
 <script>
-function login() {
-    let user = document.getElementById("username").value;
-    let pass = document.getElementById("password").value;
+function login(){
+    let u = document.getElementById("username").value.trim();
+    let p = document.getElementById("password").value.trim();
 
-    if(user === "sourov" && pass === "sourov") {
-        document.body.innerHTML = `
-            <div style="text-align:center; margin-top:100px; font-family:Arial;">
-                <h1>🔥 Welcome to my website 🔥</h1>
-                <h2>Developer Sourov 😎</h2>
-            </div>
-        `;
-    } else {
-        document.getElementById("error").innerText = "Wrong username or password!";
-    }
-}
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
+    if(u==="sourov" && p==="sourov"){
+        window.location.href="<!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <title>Dashboard</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: linear-gradient(135deg, #000428, #004e92);
-    color: white;
-    text-align: center;
+body{
+    margin:0;
+    font-family:Arial;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+    text-align:center;
 }
 
-.header {
-    background: #111;
-    padding: 15px;
-    font-size: 20px;
+.top{
+    background:#111;
+    padding:15px;
 }
 
-.card {
-    background: white;
-    color: black;
-    margin: 30px auto;
-    padding: 20px;
-    width: 300px;
-    border-radius: 10px;
+.card{
+    background:white;
+    color:black;
+    width:250px;
+    margin:20px auto;
+    padding:20px;
+    border-radius:12px;
 }
 
-button {
-    padding: 10px 20px;
-    background: red;
-    border: none;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
+button{
+    padding:10px 20px;
+    background:red;
+    border:none;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
 }
 </style>
 
@@ -134,23 +112,31 @@ button {
 
 <body>
 
-<div class="header">
-🔥 Dashboard
+<div class="top">
+<h2>🔥 Dashboard</h2>
 </div>
 
-<h1>Welcome to my website 🔥</h1>
-<h2>Developer Sourov 😎</h2>
+<h2>Welcome to my website 🔥</h2>
+<h3>Developer Sourov 😎</h3>
 
 <div class="card">
-    <p>👤 Username: sourov</p>
-    <p>📊 Status: Active</p>
+<p>👤 User: sourov</p>
+<p>📊 Status: Active</p>
 </div>
 
 <button onclick="logout()">Logout</button>
 
 <script>
 function logout(){
-    window.location.href = "index.html";
+    window.location.href="index.html";
+}
+</script>
+
+</body>
+</html>";
+    } else {
+        document.getElementById("error").innerText="❌ Wrong username or password!";
+    }
 }
 </script>
 
