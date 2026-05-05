@@ -2,31 +2,43 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>Pro Sound System</title>
 
 <style>
 body{
     margin:0;
     font-family:Arial;
-    background:linear-gradient(135deg,#000428,#004e92);
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
+    background:linear-gradient(135deg,#000428,#004e92);
+    transition:0.5s;
+    overflow:hidden;
 }
 
-.box{
+/* LOGIN */
+.login{
     background:white;
     padding:30px;
-    border-radius:12px;
-    width:320px;
+    border-radius:15px;
+    width:340px;
     text-align:center;
+    box-shadow:0 0 25px rgba(0,0,0,0.4);
+    animation:pop 1s;
+}
+
+@keyframes pop{
+    from{transform:scale(0.7);opacity:0;}
+    to{transform:scale(1);opacity:1;}
 }
 
 input{
     width:90%;
     padding:10px;
     margin:10px 0;
+    border-radius:6px;
+    border:1px solid #ccc;
 }
 
 button{
@@ -43,16 +55,83 @@ button{
     color:red;
     font-size:14px;
 }
+
+/* DASHBOARD */
+.dashboard{
+    display:none;
+    width:100%;
+    color:white;
+    text-align:center;
+    animation:fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* NAV */
+.nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:15px;
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:space-between;
+    color:white;
+}
+
+/* PROFILE */
+.profile{
+    margin-top:90px;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    border:3px solid #00c6ff;
+    box-shadow:0 0 20px #00c6ff;
+}
+
+/* CARDS */
+.card{
+    background:white;
+    color:black;
+    width:250px;
+    margin:10px auto;
+    padding:20px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.08);
+}
+
+/* BUTTON */
+.logout{
+    padding:10px 25px;
+    background:red;
+    border:none;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:20px;
+}
 </style>
 
 </head>
 
 <body>
 
-<div class="box">
+<!-- 🔊 SOUND FILES -->
+<audio id="loginSound" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
+<audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 
-<h3>👋 You are friend of Sourov</h3>
-<p>Please login to continue</p>
+<!-- LOGIN -->
+<div class="login" id="loginBox">
+
+<h2>👋 Friend of Sourov</h2>
+<p>Login to enter system</p>
 
 <input id="username" placeholder="Username">
 <input id="password" type="password" placeholder="Password">
@@ -63,80 +142,60 @@ button{
 
 </div>
 
-<script>
-function login(){
-    let u = document.getElementById("username").value.trim();
-    let p = document.getElementById("password").value.trim();
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard">
 
-    if(u==="sourov" && p==="sourov"){
-        window.location.href="<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Dashboard</title>
-
-<style>
-body{
-    margin:0;
-    font-family:Arial;
-    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    color:white;
-    text-align:center;
-}
-
-.top{
-    background:#111;
-    padding:15px;
-}
-
-.card{
-    background:white;
-    color:black;
-    width:250px;
-    margin:20px auto;
-    padding:20px;
-    border-radius:12px;
-}
-
-button{
-    padding:10px 20px;
-    background:red;
-    border:none;
-    color:white;
-    border-radius:6px;
-    cursor:pointer;
-}
-</style>
-
-</head>
-
-<body>
-
-<div class="top">
-<h2>🔥 Dashboard</h2>
+<div class="nav">
+<div>🔥 Dashboard</div>
+<div>Sourov Dev</div>
 </div>
 
-<h2>Welcome to my website 🔥</h2>
-<h3>Developer Sourov 😎</h3>
+<img class="profile" src="https://i.imgur.com/8QfQZ5F.png">
+
+<h1>Welcome Boss 🔥</h1>
+<h2>Developer Sourov 😎</h2>
 
 <div class="card">
 <p>👤 User: sourov</p>
-<p>📊 Status: Active</p>
+<p>📊 Status: Online 🟢</p>
 </div>
 
-<button onclick="logout()">Logout</button>
+<div class="card">
+<p>⚡ System: PRO SOUND MODE</p>
+<p>🚀 Speed: Ultra</p>
+</div>
+
+<!-- BUTTON WITH SOUND -->
+<button class="logout" onclick="clickSound.play(); logout()">Logout</button>
+
+</div>
 
 <script>
-function logout(){
-    window.location.href="index.html";
-}
-</script>
+function login(){
+    let u=document.getElementById("username").value.trim();
+    let p=document.getElementById("password").value.trim();
 
-</body>
-</html>";
-    } else {
+    if(u==="sourov" && p==="sourov"){
+        
+        // 🔊 LOGIN SOUND
+        document.getElementById("loginSound").play();
+
+        // hide login + show dashboard
+        document.getElementById("loginBox").style.display="none";
+        document.getElementById("dashboard").style.display="block";
+
+        // background change
+        document.body.style.background="linear-gradient(135deg,#0f2027,#203a43,#2c5364)";
+    } 
+    else {
         document.getElementById("error").innerText="❌ Wrong username or password!";
     }
+}
+
+function logout(){
+    document.getElementById("loginBox").style.display="block";
+    document.getElementById("dashboard").style.display="none";
+    document.body.style.background="linear-gradient(135deg,#000428,#004e92)";
 }
 </script>
 
